@@ -21,7 +21,6 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Skill Highlighter
 # =============================
 def highlight_skills(text, skills):
-    """Highlight matched skills in green, case-insensitive."""
     def repl(match):
         word = match.group(0)
         return f"**:green[{word}]**"
@@ -31,25 +30,13 @@ def highlight_skills(text, skills):
             continue
         pattern = re.compile(rf"\b{re.escape(s)}\b", flags=re.IGNORECASE)
         text = pattern.sub(repl, text)
-
     return text
 
 
 # =============================
-# Page Setup + Background
+# Page Setup
 # =============================
 st.set_page_config(page_title="Resume Screening Agent", layout="wide")
-
-st.markdown("""
-<style>
-    body {
-        background: linear-gradient(135deg, #eef2ff, #f5f7ff);
-    }
-    .stApp {
-        background-color: #f7f8fc;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 st.title("💼 Resume Screening Agent (AI-Powered)")
 
@@ -73,7 +60,7 @@ col1, col2 = st.columns([2, 1])
 
 
 # =============================
-# LEFT PANEL — JD + Uploads
+# LEFT PANEL
 # =============================
 with col1:
 
@@ -106,8 +93,8 @@ with col1:
 
         if not jd.strip():
             st.error("Please paste a job description.")
-        else:
 
+        else:
             with st.spinner("Embedding JD..."):
                 q_emb = embed_texts([jd])[0]
 
@@ -135,32 +122,26 @@ with col1:
                     st.write("**Extracted Skills:**", ", ".join(r.get("skills", [])) or "—")
                     st.write("**Estimated Experience:**", r.get("years_experience", 0), "years")
 
-                    # ------------------------------------------------
-                    # ⭐ RADAR CHART
-                    # ------------------------------------------------
+                    # Radar Chart
                     st.plotly_chart(candidate_radar_chart(r), use_container_width=True)
 
-                    # ------------------------------------------------
                     # Highlighted Snippet
-                    # ------------------------------------------------
                     snippet = r.get("full_text", "")[:1000]
                     highlighted = highlight_skills(snippet, r.get("skills", []))
                     st.markdown(highlighted)
 
-                    # ------------------------------------------------
-                    # ⭐ FULL RESUME PREVIEW
-                    # ------------------------------------------------
+                    # Full Resume Preview
                     with st.expander("📄 Full Resume Text (Preview)"):
                         full_res_text = highlight_skills(r["full_text"], r["skills"])
                         st.markdown(full_res_text)
 
-                    # AI Candidate Summary
+                    # AI Summary
                     if st.checkbox(f"Show AI Summary for {r['file']}"):
                         with st.spinner("Summarizing candidate..."):
                             summary = summarize_candidate(r["full_text"])
                         st.write(summary)
 
-                    # AI JD Match Explanation
+                    # AI Match Explanation
                     if st.checkbox(f"Explain JD Match for {r['file']}"):
                         with st.spinner("Analyzing match..."):
                             explanation = explain_match(jd, r["full_text"])
@@ -177,9 +158,7 @@ with col1:
                         "exp_score": r["exp_score"]
                     })
 
-                # -------------------------------
                 # Download CSV
-                # -------------------------------
                 df = pd.DataFrame(rows)
                 st.download_button(
                     "⬇ Download Screening Results (CSV)",
@@ -188,9 +167,7 @@ with col1:
                     mime="text/csv"
                 )
 
-                # -------------------------------
-                # ⭐ Download Excel (Formatted)
-                # -------------------------------
+                # Download Excel
                 if st.button("⬇ Download Excel (Formatted)"):
                     file_path = export_excel(rows)
                     with open(file_path, "rb") as f:
@@ -201,14 +178,9 @@ with col1:
                             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                         )
 
-                # =============================
-                # RECRUITER CHATBOT
-                # =============================
+                # Recruiter Chatbot
                 st.header("🤖 Recruiter Chatbot")
-
-                chat_q = st.text_input(
-                    "Ask anything about the shortlisted candidates (comparison, strengths, weaknesses)..."
-                )
+                chat_q = st.text_input("Ask anything about the shortlisted candidates...")
 
                 if chat_q:
                     st.write("Thinking...")
@@ -259,23 +231,40 @@ We are hiring a Data Scientist with 3+ years of experience.
 Skills: Python, pandas, scikit-learn, SQL, ML.
 """)
 
+
 # =============================
-# Extra UI Styling (CSS)
+# ⭐ FINAL CSS FIX — TEXT VISIBLE + WHITE BACKGROUND
 # =============================
 st.markdown("""
 <style>
-    .main {
-        background: linear-gradient(135deg, #E0EAFC 0%, #CFDEF3 100%);
+
+    /* Fix main background */
+    .main, .stApp {
+        background: #FFFFFF !important;
     }
-    .stTextInput>div>div>input {
-        border-radius: 10px;
-        padding: 8px;
+
+    /* Fix text area */
+    textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #cccccc !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        font-size: 16px !important;
     }
+
+    /* Force black text everywhere */
+    * {
+        color: #000000 !important;
+    }
+
+    /* Keep buttons blue */
     .stButton>button {
-        background-color:#0066FF;
-        color:white;
-        border-radius:10px;
-        padding:10px 20px;
+        background-color:#0066FF !important;
+        color:white !important;
+        border-radius:10px !important;
+        padding:10px 20px !important;
     }
+
 </style>
 """, unsafe_allow_html=True)
