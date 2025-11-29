@@ -234,68 +234,86 @@ Skills: Python, pandas, scikit-learn, SQL, ML.
 st.markdown("""
 <style>
 
-    /* ---------------------------
-       FIX SIDEBAR BACKGROUND
-    ----------------------------*/
-    section[data-testid="stSidebar"] {
+    /* -------------------------------------------------
+       FIX TOP NAVIGATION BAR (star, edit, github icons)
+    ---------------------------------------------------*/
+    header[data-testid="stHeader"] {
         background-color: #FFFFFF !important;
+        color: #000000 !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
     }
 
-    /* ---------------------------
-       FIX INPUT BOXES
-    ----------------------------*/
-    textarea, input[type="text"], input[type="number"], 
-    div[data-baseweb="input"] input {
+    header[data-testid="stHeader"] * {
+        color: #000000 !important;
+    }
+
+    /* -------------------------------------------------
+       FIX SIDEBAR BACKGROUND
+    ---------------------------------------------------*/
+    section[data-testid="stSidebar"] {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    /* -------------------------------------------------
+       FIX ALL INPUT TEXT AREAS + BOXES
+    ---------------------------------------------------*/
+    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
         background-color: #FFFFFF !important;
         color: #000000 !important;
         border-radius: 8px !important;
         border: 1px solid #CCCCCC !important;
     }
 
-    /* ---------------------------
-       FIX FILE UPLOADER
-    ----------------------------*/
+    /* -------------------------------------------------
+       FILE UPLOADER FIX (Browse + Drag/Drop)
+    ---------------------------------------------------*/
     div[data-testid="stFileUploader"] > section {
         background-color: #FFFFFF !important;
         border: 1px solid #CCCCCC !important;
         border-radius: 10px !important;
+        color: #000000 !important;
     }
 
-    /* Browse Files Button */
-    button[kind="secondary"] {
+    div[data-testid="stFileUploader"] label {
+        color: #000000 !important;
+    }
+
+    /* Make the browse button visible */
+    div[data-testid="stFileUploader"] button {
         background-color: #FFFFFF !important;
         color: #000000 !important;
-        border: 1px solid #777777 !important;
+        border: 1px solid #444444 !important;
+    }
+
+    /* -------------------------------------------------
+       FIX SAMPLE JD BOX (dark → white)
+    ---------------------------------------------------*/
+    .stCode, pre, code {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
         border-radius: 6px !important;
-    }
-
-    /* ---------------------------
-       FIX SAMPLE JD (code block)
-    ----------------------------*/
-    pre, code {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
         border: 1px solid #CCCCCC !important;
-        border-radius: 6px !important;
     }
 
-    /* ---------------------------
-       REMOVE DARK BACKGROUNDS
-    ----------------------------*/
+    /* -------------------------------------------------
+       REMOVE DARK BACKGROUND FROM PAGE
+    ---------------------------------------------------*/
     .stApp, .main, .block-container {
         background-color: #FFFFFF !important;
+        color: #000000 !important;
     }
 
-    /* ---------------------------
-       FIX ALL TEXT COLOR
-    ----------------------------*/
+    /* -------------------------------------------------
+       GLOBAL TEXT COLOR FIX
+    ---------------------------------------------------*/
     * {
         color: #000000 !important;
     }
 
-    /* ---------------------------
-       BUTTON STYLE
-    ----------------------------*/
+    /* -------------------------------------------------
+       BUTTON STYLE FIX
+    ---------------------------------------------------*/
     .stButton > button {
         background-color: #0066FF !important;
         color: #FFFFFF !important;
@@ -306,3 +324,4 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
+
