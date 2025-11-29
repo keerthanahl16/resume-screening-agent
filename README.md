@@ -43,6 +43,7 @@ Limitations
 - FAISS index is local — for large scale, move to cloud vector DB
 - Privacy: do not deploy with real PII without compliance checks
 
+Working Video : https://drive.google.com/file/d/1tuouu_19-VOmf6Mg9pR7Jg5QbXY1UGpp/view?usp=drivesdk
 Setup — Local (Windows PowerShell / macOS / Linux)
 
 1. Clone repo
@@ -234,6 +235,7 @@ Add active learning loop to refine scoring using recruiter feedback
 Contact / Author
 
 Keerthana H L.
+
 
 
 
