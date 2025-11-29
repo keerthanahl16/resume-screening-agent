@@ -234,52 +234,59 @@ Skills: Python, pandas, scikit-learn, SQL, ML.
 st.markdown("""
 <style>
 
-    /* Force light theme for all widgets */
-    :root {
-        color-scheme: light !important;
-    }
-
-    /* Make sidebar fully white */
+    /* ---------------------------
+       FIX SIDEBAR BACKGROUND
+    ----------------------------*/
     section[data-testid="stSidebar"] {
-        background-color: #ffffff !important;
-        color: #000000 !important;
+        background-color: #FFFFFF !important;
     }
 
-    /* Make main area clean white */
-    .stApp, .main, html, body {
-        background-color: #ffffff !important;
+    /* ---------------------------
+       FIX TEXT AREA + INPUT BOXES
+    ----------------------------*/
+    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
+        background-color: #FFFFFF !important;
         color: #000000 !important;
-    }
-
-    /* Fix text areas */
-    textarea, .stTextArea textarea {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #cccccc !important;
         border-radius: 8px !important;
-        padding: 10px !important;
-        font-size: 16px !important;
+        border: 1px solid #CCCCCC !important;
     }
 
-    /* Fix sample JD code box */
-    .stCodeBlock pre {
-        background-color: #f3f3f3 !important;
+    /* ---------------------------
+       FILE UPLOADER FIX
+    ----------------------------*/
+    div[data-testid="stFileUploader"] > section {
+        background-color: #FFFFFF !important;
+        border: 1px solid #CCCCCC !important;
+        border-radius: 10px !important;
+    }
+
+    div[data-testid="stFileUploader"] {
         color: #000000 !important;
     }
 
-    /* Fix drag & drop uploader */
-    [data-testid="stFileDropzone"] {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 2px dashed #888 !important;
+    /* ---------------------------
+       REMOVE DARK/TINTED BACKGROUND
+    ----------------------------*/
+    .stApp, .main, .block-container {
+        background-color: #FFFFFF !important;
     }
 
-    /* Buttons stay blue */
-    .stButton>button {
-        background-color:#0066FF !important;
-        color:white !important;
-        border-radius:10px !important;
-        padding:10px 20px !important;
+    /* ---------------------------
+       TEXT COLOR FIX FOR ENTIRE APP
+    ----------------------------*/
+    * {
+        color: #000000 !important;
+    }
+
+    /* ---------------------------
+       BUTTON STYLE
+    ----------------------------*/
+    .stButton > button {
+        background-color: #0066FF !important;
+        color: #FFFFFF !important;
+        border-radius: 10px !important;
+        padding: 10px 20px !important;
+        border: none !important;
     }
 
 </style>
