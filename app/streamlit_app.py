@@ -233,109 +233,32 @@ Skills: Python, pandas, scikit-learn, SQL, ML.
 st.markdown("""
 <style>
 
-    /* ===========================
-       FIX ALL DARK BACKGROUNDS
-    ===========================*/
-    .stApp, .block-container, .main, body {
-        background-color: #FFFFFF !important;
-    }
+    /* ===============================
+       FIX TOP-RIGHT STREAMLIT MENU
+       (the 3 dots dropdown)
+    =============================== */
 
-    /* Sidebar (left area) */
-    section[data-testid="stSidebar"] {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    /* Make ALL text black */
-    * {
-        color: #000000 !important;
-    }
-
-    /* ===========================
-       FIX INPUT BOXES / TEXT AREA
-    ===========================*/
-    textarea, input, div[data-baseweb="input"] input {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        border-radius: 8px !important;
-        border: 1px solid #CCCCCC !important;
-    }
-
-    /* Fix text inside text-area shadow */
-    .stTextArea textarea {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    /* ===========================
-       FIX SAMPLE JD BOX
-    ===========================*/
-    .stCodeBlock, pre, code {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        border-radius: 6px !important;
-        border: 1px solid #CCCCCC !important;
-    }
-
-    /* ===========================
-       FILE UPLOADER FIX (white)
-    ===========================*/
-    div[data-testid="stFileUploader"] > section {
-        background-color: #FFFFFF !important;
-        border: 1px solid #CCCCCC !important;
-        border-radius: 10px !important;
-        color: #000000 !important;
-    }
-
-    /* Fix drag & drop text */
-    div[data-testid="stFileUploader"] {
-        color: #000000 !important;
-    }
-
-    /* Browse files button */
-    button[title="Browse files"] {
+    /* Menu container background */
+    div[data-testid="stToolbar"] div[role="menu"] {
         background-color: #FFFFFF !important;
         color: #000000 !important;
         border: 1px solid #CCCCCC !important;
     }
 
-    /* ===========================
-       BUTTONS (keep blue)
-    ===========================*/
-    .stButton > button {
-        background-color: #0066FF !important;
-        color: white !important;
-        border-radius: 10px !important;
-        padding: 10px 20px !important;
-        border: none !important;
-    }
-
-    /* ===========================
-       FIX TOP-RIGHT MENU (3 dots)
-    ===========================*/
-    /* Force menu background white */
-    div[data-testid="stToolbarActions"], 
-    div[role="menu"], 
-    div[role="menuitem"] {
+    /* Menu Items */
+    div[data-testid="stToolbar"] div[role="menu"] div[role="menuitem"] {
         background-color: #FFFFFF !important;
         color: #000000 !important;
     }
 
-    /* Fix icon visibility */
-    svg {
-        fill: #000000 !important;
+    /* Hover effect */
+    div[data-testid="stToolbar"] div[role="menu"] div[role="menuitem"]:hover {
+        background-color: #F0F0F0 !important;
         color: #000000 !important;
     }
 
-    /* ===========================
-       FIX HEADER (GitHub, Star, Edit icons)
-    ===========================*/
-    header[data-testid="stHeader"] {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    header[data-testid="stHeader"] * {
+    /* Fix the button (three dots icon) itself */
+    button[kind="toolbar"] {
         color: #000000 !important;
     }
 
