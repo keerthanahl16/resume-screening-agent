@@ -324,4 +324,30 @@ st.markdown("""
 
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+
+    /* ---------------------------
+       FIX TOP NAVBAR (star, edit, GitHub)
+       Streamlit header override
+    ----------------------------*/
+    header[data-testid="stHeader"] {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        border-bottom: 1px solid #DDDDDD !important;
+    }
+
+    /* Make icons visible */
+    header[data-testid="stHeader"] svg {
+        fill: #000000 !important;
+        color: #000000 !important;
+    }
+
+    /* Fix top-right "•••" menu */
+    header[data-testid="stHeader"] button {
+        color: #000000 !important;
+    }
+
+</style>
+""", unsafe_allow_html=True)
 
