@@ -45,7 +45,129 @@ Limitations
 
 Setup — Local (Windows PowerShell / macOS / Linux)
 
-**1. Clone repo**
+1. Clone repo
 ```bash
 git clone https://github.com/keerthanahl16/resume-screening-agent.git
 cd resume-screening-agent
+
+2. Create venv & activate
+
+PowerShell:
+
+python -m venv venv
+.\venv\Scripts\Activate.ps1    # if ExecutionPolicy blocks, run PowerShell as Admin or use: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+macOS / Linux:
+
+python3 -m venv venv
+source venv/bin/activate
+
+
+3. Install dependencies
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+
+Make sure requirements.txt includes these (example):
+
+streamlit
+pandas
+numpy
+faiss-cpu
+sentence-transformers
+pdfplumber
+python-docx
+docx2txt
+plotly
+openpyxl
+openai
+pyyaml
+
+
+4. Add env vars
+Set your OpenAI API key (or other):
+PowerShell:
+
+$env:OPENAI_API_KEY="sk-..."
+
+
+macOS/Linux:
+
+export OPENAI_API_KEY="sk-..."
+
+
+5. Run
+
+streamlit run app/streamlit_app.py
+
+
+Open http://localhost:8501 in your browser.
+
+How to push to GitHub (clean, exclude venv)
+
+Ensure .gitignore contains:
+
+venv/
+__pycache__/
+*.pyc
+faiss_index/
+data/resumes/
+.env
+.DS_Store
+.ipynb_checkpoints
+
+
+Initialize & push:
+
+git init
+git add .
+git commit -m "Initial Resume Screening Agent"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/resume-screening-agent.git
+git push -u origin main
+
+
+Important: Do NOT include venv/ or any site-packages in the repo. If you accidentally committed large files, remove them from git history (I can guide you).
+
+Deploy to Streamlit Cloud (quick)
+
+Push repo to GitHub.
+
+Go to https://share.streamlit.io
+ → New app → connect GitHub repo.
+
+Set Branch: main and Main file: app/streamlit_app.py.
+
+Under Settings → Advanced → Environment variables, add:
+
+OPENAI_API_KEY = sk-...
+
+
+Deploy. Monitor logs for dependency install errors — add missing packages to requirements.txt.
+
+Troubleshooting (common)
+
+ModuleNotFoundError: pdfplumber → add pdfplumber to requirements.txt and re-push.
+
+Streamlit Cloud dependency install failed → open logs, add failing packages to requirements.txt, push again.
+
+Large file push rejected → remove venv/ and large files from repo, add to .gitignore, then force-push a clean commit (I can guide).
+
+Potential improvements (future)
+
+Use a hosted vector DB (Pinecone, Milvus, Weaviate) for scale
+
+Add RBAC + authentication
+
+Improve parser using layout-aware PDF extraction (Donut / LayoutLM)
+
+Add resume anonymization and PII protection / compliance
+
+Add active learning loop to refine scoring using recruiter feedback
+
+Contact / Author
+
+Keerthana H L.
+
