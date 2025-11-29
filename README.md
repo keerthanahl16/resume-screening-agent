@@ -147,8 +147,6 @@ OPENAI_API_KEY = sk-...
 
 Deploy. Monitor logs for dependency install errors — add missing packages to requirements.txt.
 
-<img width="701" height="459" alt="Arcitec" src="https://github.com/user-attachments/assets/05c41906-547c-4c9b-91f2-977fc734bec8" />
-
 Resume Screening Agent — Architecture Diagram
 ┌───────────────────────┐
 │      User Inputs       │
@@ -236,6 +234,7 @@ Add active learning loop to refine scoring using recruiter feedback
 Contact / Author
 
 Keerthana H L.
+
 
 
 
