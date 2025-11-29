@@ -242,9 +242,10 @@ st.markdown("""
     }
 
     /* ---------------------------
-       FIX TEXT AREA + INPUT BOXES
+       FIX INPUT BOXES
     ----------------------------*/
-    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
+    textarea, input[type="text"], input[type="number"], 
+    div[data-baseweb="input"] input {
         background-color: #FFFFFF !important;
         color: #000000 !important;
         border-radius: 8px !important;
@@ -252,7 +253,7 @@ st.markdown("""
     }
 
     /* ---------------------------
-       FILE UPLOADER FIX
+       FIX FILE UPLOADER
     ----------------------------*/
     div[data-testid="stFileUploader"] > section {
         background-color: #FFFFFF !important;
@@ -260,19 +261,33 @@ st.markdown("""
         border-radius: 10px !important;
     }
 
-    div[data-testid="stFileUploader"] {
+    /* Browse Files Button */
+    button[kind="secondary"] {
+        background-color: #FFFFFF !important;
         color: #000000 !important;
+        border: 1px solid #777777 !important;
+        border-radius: 6px !important;
     }
 
     /* ---------------------------
-       REMOVE DARK/TINTED BACKGROUND
+       FIX SAMPLE JD (code block)
+    ----------------------------*/
+    pre, code {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        border: 1px solid #CCCCCC !important;
+        border-radius: 6px !important;
+    }
+
+    /* ---------------------------
+       REMOVE DARK BACKGROUNDS
     ----------------------------*/
     .stApp, .main, .block-container {
         background-color: #FFFFFF !important;
     }
 
     /* ---------------------------
-       TEXT COLOR FIX FOR ENTIRE APP
+       FIX ALL TEXT COLOR
     ----------------------------*/
     * {
         color: #000000 !important;
