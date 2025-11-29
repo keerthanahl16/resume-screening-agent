@@ -147,6 +147,73 @@ OPENAI_API_KEY = sk-...
 
 Deploy. Monitor logs for dependency install errors — add missing packages to requirements.txt.
 
+<img width="850" height="495" alt="image" src="https://github.com/user-attachments/assets/4964a93e-bee4-44e9-862b-823d823ffbd6" />
+<img width="701" height="459" alt="image" src="https://github.com/user-attachments/assets/4370a3b5-3cb0-4307-83ce-62a84f935769" />
+
+Resume Screening Agent — Architecture Diagram
+┌───────────────────────┐
+│      User Inputs       │
+│  • Job Description     │
+│  • Desired Skills      │
+│  • Experience Level    │
+│  • Upload Resumes      │
+└──────────┬────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│      Resume Preprocessing    │
+│  • PDF/DOCX Extraction       │
+│  • Cleaning & Normalizing    │
+│  • Skill Extraction          │
+│  • Experience Estimation     │
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│       Embedding Layer        │
+│ Sentence Transformers (MiniLM)│
+│ → Converts text → 384-dim vector│
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│     Vector Database (FAISS)  │
+│ • Stores all resume vectors   │
+│ • Performs similarity search  │
+│ • Returns top-K candidates    │
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│     Scoring Engine           │
+│ Composite Score =            │
+│ 0.55*Embedding               │
+│ 0.25*Skill Match             │
+│ 0.15*Experience              │
+│ 0.05*Skill Richness          │
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│   AI Enhancement Layer       │
+│ OpenAI (GPT-4o-mini):        │
+│ • AI Summary of Resume       │
+│ • JD-Resume Match Analysis   │
+│ • Recruiter Chatbot          │
+└──────────┬──────────────────┘
+           │
+           ▼
+┌─────────────────────────────┐
+│         Streamlit UI         │
+│ • Radar Charts               │
+│ • Highlighted Skills         │
+│ • CSV/Excel Export           │
+│ • Live Chatbot               │
+└─────────────────────────────┘
+
+
+
+
 Troubleshooting (common)
 
 ModuleNotFoundError: pdfplumber → add pdfplumber to requirements.txt and re-push.
@@ -170,4 +237,5 @@ Add active learning loop to refine scoring using recruiter feedback
 Contact / Author
 
 Keerthana H L.
+
 
