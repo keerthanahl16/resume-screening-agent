@@ -235,56 +235,59 @@ Skills: Python, pandas, scikit-learn, SQL, ML.
 st.markdown("""
 <style>
 
-    /* Force full app to use white background */
-    .stApp, .main, html, body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
+    /* ---------------------------
+       FIX SIDEBAR BACKGROUND
+    ----------------------------*/
+    section[data-testid="stSidebar"] {
+        background-color: #FFFFFF !important;
     }
 
-    /* ----------- TEXTAREA FIX ----------- */
-    textarea, .stTextArea textarea {
-        background-color: #ffffff !important;
+    /* ---------------------------
+       FIX TEXT AREA + INPUT BOXES
+    ----------------------------*/
+    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
+        background-color: #FFFFFF !important;
         color: #000000 !important;
-        border: 1px solid #999999 !important;
         border-radius: 8px !important;
-        padding: 10px !important;
-        font-size: 16px !important;
+        border: 1px solid #CCCCCC !important;
     }
 
-    /* ----------- TEXT INPUT FIX ----------- */
-    input[type="text"], input[type="number"], .stTextInput input {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        border: 1px solid #999999 !important;
-        border-radius: 8px !important;
-        padding: 10px !important;
-        font-size: 16px !important;
-    }
-
-    /* ----------- FILE UPLOADER FIX ----------- */
-    .uploadedFile, .stFileUploader, .stFileUploader div div {
-        background-color: #ffffff !important;
-        color: #000000 !important;
+    /* ---------------------------
+       FILE UPLOADER FIX
+    ----------------------------*/
+    div[data-testid="stFileUploader"] > section {
+        background-color: #FFFFFF !important;
+        border: 1px solid #CCCCCC !important;
         border-radius: 10px !important;
-        border: 1px solid #999999 !important;
     }
 
-    .stFileUploader label {
+    div[data-testid="stFileUploader"] {
         color: #000000 !important;
     }
 
-    /* FIX markdown text (black letters) */
-    p, label, h1, h2, h3, h4, span, div {
+    /* ---------------------------
+       REMOVE DARK/TINTED BACKGROUND
+    ----------------------------*/
+    .stApp, .main, .block-container {
+        background-color: #FFFFFF !important;
+    }
+
+    /* ---------------------------
+       TEXT COLOR FIX FOR ENTIRE APP
+    ----------------------------*/
+    * {
         color: #000000 !important;
     }
 
-    /* ----------- BUTTON STYLE ----------- */
-    .stButton>button {
-        background-color:#0066FF !important;
-        color:white !important;
-        border-radius:10px !important;
-        padding:10px 20px !important;
-        font-size:16px !important;
+    /* ---------------------------
+       BUTTON STYLE
+    ----------------------------*/
+    .stButton > button {
+        background-color: #0066FF !important;
+        color: #FFFFFF !important;
+        border-radius: 10px !important;
+        padding: 10px 20px !important;
+        border: none !important;
     }
 
 </style>
