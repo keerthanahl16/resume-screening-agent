@@ -231,62 +231,52 @@ We are hiring a Data Scientist with 3+ years of experience.
 Skills: Python, pandas, scikit-learn, SQL, ML.
 """)
 
-
 st.markdown("""
 <style>
 
-    /* ---------------------------
-       FIX SIDEBAR BACKGROUND
-    ----------------------------*/
-    section[data-testid="stSidebar"] {
-        background-color: #FFFFFF !important;
+    /* Force everything to stay light even if Streamlit auto-switches */
+    html, body, .stApp {
+        background-color: #ffffff !important;
+        color: #000000 !important;
     }
 
-    /* ---------------------------
-       FIX TEXT AREA + INPUT BOXES
-    ----------------------------*/
-    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
-        background-color: #FFFFFF !important;
+    /* Sidebar background */
+    section[data-testid="stSidebar"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Text inputs */
+    textarea, input, select {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #cccccc !important;
+        border-radius: 6px !important;
+        padding: 8px !important;
+    }
+
+    /* File uploader */
+    div[data-testid="stFileUploader"] {
+        background-color: #ffffff !important;
+        border: 1px solid #cccccc !important;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    /* Sample JD block */
+    pre, code {
+        background-color: #f3f3f3 !important;
         color: #000000 !important;
         border-radius: 8px !important;
-        border: 1px solid #CCCCCC !important;
+        padding: 10px !important;
     }
 
-    /* ---------------------------
-       FILE UPLOADER FIX
-    ----------------------------*/
-    div[data-testid="stFileUploader"] > section {
-        background-color: #FFFFFF !important;
-        border: 1px solid #CCCCCC !important;
-        border-radius: 10px !important;
-    }
-
-    div[data-testid="stFileUploader"] {
-        color: #000000 !important;
-    }
-
-    /* ---------------------------
-       REMOVE DARK/TINTED BACKGROUND
-    ----------------------------*/
-    .stApp, .main, .block-container {
-        background-color: #FFFFFF !important;
-    }
-
-    /* ---------------------------
-       TEXT COLOR FIX FOR ENTIRE APP
-    ----------------------------*/
-    * {
-        color: #000000 !important;
-    }
-
-    /* ---------------------------
-       BUTTON STYLE
-    ----------------------------*/
-    .stButton > button {
-        background-color: #0066FF !important;
-        color: #FFFFFF !important;
-        border-radius: 10px !important;
-        padding: 10px 20px !important;
+    /* Buttons */
+    .stButton>button {
+        background-color: #007bff !important;
+        color:white !important;
+        border-radius:10px !important;
+        padding:10px 20px !important;
         border: none !important;
     }
 
