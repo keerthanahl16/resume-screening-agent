@@ -230,44 +230,56 @@ with col2:
 We are hiring a Data Scientist with 3+ years of experience.
 Skills: Python, pandas, scikit-learn, SQL, ML.
 """)
-
 st.markdown("""
 <style>
 
-    /* -------------------------------------------------
-       FIX TOP NAVIGATION BAR (star, edit, github icons)
-    ---------------------------------------------------*/
-    header[data-testid="stHeader"] {
+    /* ===========================
+       FIX ALL DARK BACKGROUNDS
+    ===========================*/
+    .stApp, .block-container, .main, body {
         background-color: #FFFFFF !important;
-        color: #000000 !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
     }
 
-    header[data-testid="stHeader"] * {
-        color: #000000 !important;
-    }
-
-    /* -------------------------------------------------
-       FIX SIDEBAR BACKGROUND
-    ---------------------------------------------------*/
+    /* Sidebar (left area) */
     section[data-testid="stSidebar"] {
         background-color: #FFFFFF !important;
         color: #000000 !important;
     }
 
-    /* -------------------------------------------------
-       FIX ALL INPUT TEXT AREAS + BOXES
-    ---------------------------------------------------*/
-    textarea, input[type="text"], input[type="number"], div[data-baseweb="input"] input {
+    /* Make ALL text black */
+    * {
+        color: #000000 !important;
+    }
+
+    /* ===========================
+       FIX INPUT BOXES / TEXT AREA
+    ===========================*/
+    textarea, input, div[data-baseweb="input"] input {
         background-color: #FFFFFF !important;
         color: #000000 !important;
         border-radius: 8px !important;
         border: 1px solid #CCCCCC !important;
     }
 
-    /* -------------------------------------------------
-       FILE UPLOADER FIX (Browse + Drag/Drop)
-    ---------------------------------------------------*/
+    /* Fix text inside text-area shadow */
+    .stTextArea textarea {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    /* ===========================
+       FIX SAMPLE JD BOX
+    ===========================*/
+    .stCodeBlock, pre, code {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        border-radius: 6px !important;
+        border: 1px solid #CCCCCC !important;
+    }
+
+    /* ===========================
+       FILE UPLOADER FIX (white)
+    ===========================*/
     div[data-testid="stFileUploader"] > section {
         background-color: #FFFFFF !important;
         border: 1px solid #CCCCCC !important;
@@ -275,76 +287,55 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    div[data-testid="stFileUploader"] label {
+    /* Fix drag & drop text */
+    div[data-testid="stFileUploader"] {
         color: #000000 !important;
     }
 
-    /* Make the browse button visible */
-    div[data-testid="stFileUploader"] button {
+    /* Browse files button */
+    button[title="Browse files"] {
         background-color: #FFFFFF !important;
         color: #000000 !important;
-        border: 1px solid #444444 !important;
-    }
-
-    /* -------------------------------------------------
-       FIX SAMPLE JD BOX (dark → white)
-    ---------------------------------------------------*/
-    .stCode, pre, code {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        border-radius: 6px !important;
         border: 1px solid #CCCCCC !important;
     }
 
-    /* -------------------------------------------------
-       REMOVE DARK BACKGROUND FROM PAGE
-    ---------------------------------------------------*/
-    .stApp, .main, .block-container {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-    }
-
-    /* -------------------------------------------------
-       GLOBAL TEXT COLOR FIX
-    ---------------------------------------------------*/
-    * {
-        color: #000000 !important;
-    }
-
-    /* -------------------------------------------------
-       BUTTON STYLE FIX
-    ---------------------------------------------------*/
+    /* ===========================
+       BUTTONS (keep blue)
+    ===========================*/
     .stButton > button {
         background-color: #0066FF !important;
-        color: #FFFFFF !important;
+        color: white !important;
         border-radius: 10px !important;
         padding: 10px 20px !important;
         border: none !important;
     }
 
-</style>
-""", unsafe_allow_html=True)
-st.markdown("""
-<style>
-
-    /* ---------------------------
-       FIX TOP NAVBAR (star, edit, GitHub)
-       Streamlit header override
-    ----------------------------*/
-    header[data-testid="stHeader"] {
-        background: #FFFFFF !important;
+    /* ===========================
+       FIX TOP-RIGHT MENU (3 dots)
+    ===========================*/
+    /* Force menu background white */
+    div[data-testid="stToolbarActions"], 
+    div[role="menu"], 
+    div[role="menuitem"] {
+        background-color: #FFFFFF !important;
         color: #000000 !important;
-        border-bottom: 1px solid #DDDDDD !important;
     }
 
-    /* Make icons visible */
-    header[data-testid="stHeader"] svg {
+    /* Fix icon visibility */
+    svg {
         fill: #000000 !important;
         color: #000000 !important;
     }
 
-    /* Fix top-right "•••" menu */
-    header[data-testid="stHeader"] button {
+    /* ===========================
+       FIX HEADER (GitHub, Star, Edit icons)
+    ===========================*/
+    header[data-testid="stHeader"] {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+    }
+
+    header[data-testid="stHeader"] * {
         color: #000000 !important;
     }
 
