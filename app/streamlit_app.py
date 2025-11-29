@@ -232,38 +232,59 @@ Skills: Python, pandas, scikit-learn, SQL, ML.
 """)
 
 
-# =============================
-# ⭐ FINAL CSS FIX — TEXT VISIBLE + WHITE BACKGROUND
-# =============================
 st.markdown("""
 <style>
 
-    /* Fix main background */
-    .main, .stApp {
-        background: #FFFFFF !important;
-    }
-
-    /* Fix text area */
-    textarea {
+    /* Force full app to use white background */
+    .stApp, .main, html, body {
         background-color: #ffffff !important;
         color: #000000 !important;
-        border: 1px solid #cccccc !important;
+    }
+
+    /* ----------- TEXTAREA FIX ----------- */
+    textarea, .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #999999 !important;
         border-radius: 8px !important;
         padding: 10px !important;
         font-size: 16px !important;
     }
 
-    /* Force black text everywhere */
-    * {
+    /* ----------- TEXT INPUT FIX ----------- */
+    input[type="text"], input[type="number"], .stTextInput input {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #999999 !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        font-size: 16px !important;
+    }
+
+    /* ----------- FILE UPLOADER FIX ----------- */
+    .uploadedFile, .stFileUploader, .stFileUploader div div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 10px !important;
+        border: 1px solid #999999 !important;
+    }
+
+    .stFileUploader label {
         color: #000000 !important;
     }
 
-    /* Keep buttons blue */
+    /* FIX markdown text (black letters) */
+    p, label, h1, h2, h3, h4, span, div {
+        color: #000000 !important;
+    }
+
+    /* ----------- BUTTON STYLE ----------- */
     .stButton>button {
         background-color:#0066FF !important;
         color:white !important;
         border-radius:10px !important;
         padding:10px 20px !important;
+        font-size:16px !important;
     }
 
 </style>
